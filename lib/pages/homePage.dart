@@ -1,8 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:project_sirac/models/userModel.dart';
-import 'package:country_picker/country_picker.dart';
-import 'package:country_state_city_picker/country_state_city_picker.dart';
 import 'package:country_state_picker/country_state_picker.dart';
 import 'package:project_sirac/pages/userInformationPage.dart';
 import 'package:project_sirac/services/userServices.dart';
@@ -18,7 +15,7 @@ class _HomePageState extends State<HomePage> {
    super.initState();
   }
   String? name;
-  bool filtered=false;
+  bool filtered=false; ///filtreleme uygulanıp uygulanmadığını kontrol eden ternary operatörünün bool değişkeni.
    List<UserModel>? filteredUserList;
   late List<UserModel> userModelList;
   String? country;
@@ -70,7 +67,7 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CountryStatePicker(
+            CountryStatePicker(/// Ülke ve şehirleri içerisinde barındıran liste eklentisi.
               onCountryChanged: (ct) => setState(() {
                 country = ct;
                 city = null;
@@ -229,10 +226,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-  void handleCountryPicker(Country country) {
-    print('Selected country: ${country.displayName}');
-    // seçilen ülkeye göre bir işlem yapabilirsiniz
   }
 }
 
